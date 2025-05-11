@@ -13,6 +13,7 @@ export default async function handler(req, res) {
         <meta property="fc:frame:button:1:action" content="launch_frame" />
         <meta property="fc:frame:button:1:url" content="https://mini-app-mauve-iota.vercel.app/api/frame" />
 
+        <!-- Ensure post_url is correct -->
         <meta property="fc:frame:post_url" content="https://mini-app-mauve-iota.vercel.app/api/action" />
       </head>
       <body>
