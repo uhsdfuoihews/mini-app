@@ -9,7 +9,7 @@ export default async function handler(req, res) {
         <meta property="og:title" content="My First Farcaster Frame" />
         <meta property="fc:frame:image" content="https://res.cloudinary.com/dsjgj0vma/image/upload/v1740849866/good_morning_rjbsdo.png" />
         <meta property="fc:frame:button:1" content="Click Me!" />
-        <meta property="fc:frame:post_url" content="https://mini-app-mauve-iota.vercel.app/api/frame" />
+        <meta property="fc:frame:post_url" content="https://mini-app-mauve-iota.vercel.app/api/action" />
       </head>
       <body></body>
     </html>
