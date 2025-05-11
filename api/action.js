@@ -1,25 +1,22 @@
 export default async function handler(req, res) {
-  res.setHeader('Content-Type', 'text/html');
-  res.send(`
-    <!DOCTYPE html>
-    <html>
-      <head>
-        <meta property="og:title" content="You Clicked the Button!" />
-        <meta property="fc:frame" content="vNext" />
-        <meta property="fc:frame:image" content="https://res.cloudinary.com/dsjgj0vma/image/upload/v1740849866/good_morning_rjbsdo.png" />
-        
-        <!-- Button setup for Go Back action -->
-        <meta property="fc:frame:button:1" content="Go Back" />
-        <meta property="fc:frame:button:1:action" content="launch_frame" />
-        <meta property="fc:frame:button:1:url" content="https://mini-app-mauve-iota.vercel.app/api/frame" />
+  // Set Content-Type to application/json for the response
+  res.setHeader('Content-Type', 'application/json');
 
-        <!-- Ensure post_url is correct -->
-        <meta property="fc:frame:post_url" content="https://mini-app-mauve-iota.vercel.app/api/action" />
-      </head>
-      <body>
-        <h1>You Clicked the Button!</h1>
-        <p>The action has been processed. You can go back to the frame by clicking the button below.</p>
-      </body>
-    </html>
-  `);
+  // Response structure to return valid frame data in JSON format
+  const response = {
+    "version": "next", // Use the correct Farcaster frame version
+    "imageUrl": "https://res.cloudinary.com/dsjgj0vma/image/upload/v1740849866/good_morning_rjbsdo.png", // Your image URL
+    "button": {
+      "title": "Go Back", // Button text
+      "action": {
+        "type": "launch_frame", // Action type to load a new frame
+        "name": "Go Back Frame", // The name for the frame to launch
+        "url": "https://mini-app-mauve-iota.vercel.app/api/frame" // The URL for the frame to load when the button is clicked
+      }
+    },
+    "post_url": "https://mini-app-mauve-iota.vercel.app/api/action" // Keep the post URL if needed
+  };
+
+  // Send the JSON response
+  res.status(200).json(response);
 }
